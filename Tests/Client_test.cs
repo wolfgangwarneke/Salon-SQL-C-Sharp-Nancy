@@ -35,12 +35,12 @@ namespace Salon
     [Fact]
     public void Test_Save_SavesClientToDatabase()
     {
-      Client testClient = new Client("Carly", 5);
+      Client testClient = new Client("Carly", 1);
       testClient.Save();
       List<Client> result = Client.GetAll();
       List<Client> testClientList = new List<Client>{testClient};
 
-      Assert.Equal(1, 1);
+      Assert.Equal(result, testClientList);
     }
     // [Fact]
     // public void Test_Find_FindsClientInDatabase()

@@ -63,7 +63,7 @@ namespace Salon
       {
         int clientId = rdr.GetInt32(0);
         string clientName = rdr.GetString(1);
-        int clientStylistId = rdr.GetInt32(0);
+        int clientStylistId = rdr.GetInt32(2);
         Client newClient = new Client(clientName, clientStylistId, clientId);
         allClients.Add(newClient);
       }
