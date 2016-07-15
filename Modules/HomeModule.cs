@@ -91,6 +91,23 @@ namespace Salon
         model.Add("clients", allClients);
         return View["admin.cshtml", model];
       };
+      Get["/customer/remove/{id}"] = parameters => {
+        Client SelectedClient = Client.Find(parameters.id);
+        return View["remove_customer_confirmation.cshtml", SelectedClient];
+      };
+      Delete["/customer/remove/{id}"] = parameters => {
+        if (Request.Form["confirm"] == "yes")
+        {
+          Client SelectedClient = Client.Find(parameters.id);
+          SelectedClient.Delete();
+        }
+        List<Stylist> allStylists = Stylist.GetAll();
+        List<Client> allClients = Client.GetAll();
+        Dictionary<string, object> model = new Dictionary<string, object> {};
+        model.Add("stylists", allStylists);
+        model.Add("clients", allClients);
+        return View["admin.cshtml", model];
+      };
     }
   }
 }

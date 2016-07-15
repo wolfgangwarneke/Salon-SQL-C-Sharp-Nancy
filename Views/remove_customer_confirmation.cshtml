@@ -1,0 +1,7 @@
+<form action="/customer/remove/@Model.GetId()" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <label for="confirm">Confirm Remove @Model.GetName()?</label>
+  <input type="radio" name="confirm" value="yes"> Yes<br>
+  <input type="radio" name="confirm" value="no"> No<br>
+  <button type="submit">Submit</button>
+</form>

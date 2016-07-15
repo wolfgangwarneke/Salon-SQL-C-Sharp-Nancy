@@ -17,7 +17,7 @@ _{This is a detailed description of your application. Its purpose and usage.  Gi
 * _Adds new customers to the clients list_
 * _Displays all customers_
 * _Updates customer information if necessary_
-* _Allow user to remove customer if requested_
+* _Allow administrative user to remove customer if requested_
 * _Pairs new customer with a stylist_
 * _Updates customer/stylist pair if customer request to change_
 * _Displays all customers for a selected stylist_
