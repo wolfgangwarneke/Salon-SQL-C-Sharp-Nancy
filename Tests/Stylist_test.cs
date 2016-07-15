@@ -43,7 +43,7 @@ namespace Salon
       Assert.Equal(testStylistList, result);
     }
     [Fact]
-    public void Test_FindFindsTaskInDatabase()
+    public void Test_Find_FindsStylistInDatabase()
     {
       Stylist testStylist = new Stylist("Jeremiah");
       testStylist.Save();
@@ -51,5 +51,16 @@ namespace Salon
 
       Assert.Equal(testStylist, foundStylist);
     }
+    [Fact]
+    public void Test_Update_UpdatesStylistInDatabase()
+    {
+      Stylist testStylist = new Stylist("Sofia");
+      testStylist.Save();
+      testStylist.Update("Sophie");
+      string result = testStylist.GetName();
+
+      Assert.Equal("Sophie", result);
+    }
+    
   }
 }
