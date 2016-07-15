@@ -42,38 +42,49 @@ namespace Salon
 
       Assert.Equal(result, testClientList);
     }
-    // [Fact]
-    // public void Test_Find_FindsClientInDatabase()
-    // {
-    //   Client testClient = new Client("Jeremiah", 1);
-    //   testClient.Save();
-    //   Client foundClient = Client.Find(testClient.GetId());
-    //
-    //   Assert.Equal(testClient, foundClient);
-    // }
-    // [Fact]
-    // public void Test_Update_UpdatesClientInDatabase()
-    // {
-    //   Client testClient = new Client("Sofia", 1);
-    //   testClient.Save();
-    //   testClient.Update("Sophie");
-    //   string result = testClient.GetName();
-    //
-    //   Assert.Equal("Sophie", result);
-    // }
-    // [Fact]
-    // public void Test_Delete_RemoveClientFromDatabase()
-    // {
-    //   Client testClient1 = new Client("Barb", 1);
-    //   testClient1.Save();
-    //   Client testClient2 = new Client("Chaz", 1);
-    //   testClient2.Save();
-    //
-    //   testClient1.Delete();
-    //   List<Client> resultClient = Client.GetAll();
-    //   List<Client> testClientList = new List<Client> {testClient2};
-    //
-    //   Assert.Equal(testClientList, resultClient);
-    // }
+    [Fact]
+    public void Test_Find_FindsClientInDatabase()
+    {
+      Client testClient = new Client("Jeremiah", 1);
+      testClient.Save();
+      Client foundClient = Client.Find(testClient.GetId());
+
+      Assert.Equal(testClient, foundClient);
+    }
+    [Fact]
+    public void Test_UpdateName_UpdatesClientNameInDatabase()
+    {
+      Client testClient = new Client("Sofia", 1);
+      testClient.Save();
+      testClient.UpdateName("Sophie");
+      string result = testClient.GetName();
+
+      Assert.Equal("Sophie", result);
+    }
+    [Fact]
+    public void Test_UpdateStylistId_UpdatesClientStylistIdInDatabase()
+    {
+      Client testClient = new Client("Sofia", 1);
+      testClient.Save();
+      testClient.UpdateStylistId(2);
+      int expected = 2;
+      int result = testClient.GetStylistId();
+
+      Assert.Equal(expected, result);
+    }
+    [Fact]
+    public void Test_Delete_RemoveClientFromDatabase()
+    {
+      Client testClient1 = new Client("Barb", 1);
+      testClient1.Save();
+      Client testClient2 = new Client("Chaz", 1);
+      testClient2.Save();
+
+      testClient1.Delete();
+      List<Client> resultClient = Client.GetAll();
+      List<Client> testClientList = new List<Client> {testClient2};
+
+      Assert.Equal(testClientList, resultClient);
+    }
   }
 }

@@ -159,7 +159,7 @@ namespace Salon
 
       return foundClient;
     }
-    public void Update(string newName)
+    public void UpdateName(string newName)
     {
       SqlConnection conn = DB.Connection();
       SqlDataReader rdr;
@@ -181,6 +181,41 @@ namespace Salon
       while(rdr.Read())
       {
         this._name = rdr.GetString(0);
+      }
+
+      if (rdr != null)
+      {
+        rdr.Close();
+      }
+
+      if (conn != null)
+      {
+        conn.Close();
+      }
+    }
+    public void UpdateStylistId(int newId)
+    {
+      SqlConnection conn = DB.Connection();
+      SqlDataReader rdr;
+      conn.Open();
+
+      SqlCommand cmd = new SqlCommand("UPDATE clients SET stylist_id = @NewId OUTPUT INSERTED.stylist_id WHERE id = @ClientId;", conn);
+
+      SqlParameter newIdParameter = new SqlParameter();
+      newIdParameter.ParameterName = "@NewId";
+      newIdParameter.Value = newId;
+      cmd.Parameters.Add(newIdParameter);
+
+
+      SqlParameter clientIdParameter = new SqlParameter();
+      clientIdParameter.ParameterName = "@ClientId";
+      clientIdParameter.Value = this.GetId();
+      cmd.Parameters.Add(clientIdParameter);
+      rdr = cmd.ExecuteReader();
+
+      while(rdr.Read())
+      {
+        this._stylistId = rdr.GetInt32(0);
       }
 
       if (rdr != null)
