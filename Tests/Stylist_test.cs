@@ -61,6 +61,19 @@ namespace Salon
 
       Assert.Equal("Sophie", result);
     }
-    
+    [Fact]
+    public void Test_Delete_RemoveStylistFromDatabase()
+    {
+      Stylist testStylist1 = new Stylist("Barb");
+      testStylist1.Save();
+      Stylist testStylist2 = new Stylist("Chaz");
+      testStylist2.Save();
+
+      testStylist1.Delete();
+      List<Stylist> resultStylist = Stylist.GetAll();
+      List<Stylist> testStylistList = new List<Stylist> {testStylist2};
+
+      Assert.Equal(testStylistList, resultStylist);
+    }
   }
 }
