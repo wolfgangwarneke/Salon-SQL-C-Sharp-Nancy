@@ -11,7 +11,7 @@ _{This is a detailed description of your application. Its purpose and usage.  Gi
 ## Specifications
 
 * _Adds new salon employees to the roster_
-* _Displays salon all salon employees_
+* _Displays all salon employees_
 * _Edits salon employee information if needed_
 * _Removes salon employee from database if they move on_
 * _Adds new customers to the clients list_

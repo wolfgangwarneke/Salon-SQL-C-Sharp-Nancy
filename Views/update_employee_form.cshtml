@@ -1,0 +1,9 @@
+<h3>Update @Model.GetName()</h3>
+<form action="/employee/update/@Model.GetId()" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+  <input name="stylist-id" type="hidden" value="@Model.GetId()">
+  <label for="newname">Stylist's new name</label>
+  <input name="newname" type="text">
+  <button type="submit">Update</button>
+</form>
+<a href="/admin">Go back to admin panel</a>
