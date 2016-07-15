@@ -77,6 +77,20 @@ namespace Salon
         model.Add("clients", allClients);
         return View["admin.cshtml", model];
       };
+      Get["/customer/update/{id}"] = parameters => {
+        Client SelectedClient = Client.Find(parameters.id);
+        return View["update_customer_form.cshtml", SelectedClient];
+      };
+      Patch["/customer/update/{id}"] = parameters => {
+        Client SelectedClient = Client.Find(parameters.id);
+        SelectedClient.UpdateName(Request.Form["newname"]);
+        List<Stylist> allStylists = Stylist.GetAll();
+        List<Client> allClients = Client.GetAll();
+        Dictionary<string, object> model = new Dictionary<string, object> {};
+        model.Add("stylists", allStylists);
+        model.Add("clients", allClients);
+        return View["admin.cshtml", model];
+      };
     }
   }
 }
