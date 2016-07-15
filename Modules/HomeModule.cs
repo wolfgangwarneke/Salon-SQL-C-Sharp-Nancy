@@ -12,6 +12,17 @@ namespace Salon
       Get["/"] = _ => {
         return View["index.cshtml"];
       };
+      Get["/admin"] = _ => {
+        return View["admin.cshtml"];
+      };
+      Get["/employee/add"] = _ => {
+        return View["new_employee_form.cshtml"];
+      };
+      Post["/employee/add"] = _ => {
+        Stylist newStylist = new Stylist(Request.Form["name"]);
+        newStylist.Save();
+        return View["index.cshtml"];
+      };
     }
   }
 }
