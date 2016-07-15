@@ -42,5 +42,14 @@ namespace Salon
 
       Assert.Equal(testStylistList, result);
     }
+    [Fact]
+    public void Test_FindFindsTaskInDatabase()
+    {
+      Stylist testStylist = new Stylist("Jeremiah");
+      testStylist.Save();
+      Stylist foundStylist = Stylist.Find(testStylist.GetId());
+
+      Assert.Equal(testStylist, foundStylist);
+    }
   }
 }
