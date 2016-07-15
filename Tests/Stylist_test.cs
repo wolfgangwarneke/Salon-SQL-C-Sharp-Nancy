@@ -8,14 +8,14 @@ namespace Salon
 {
   public class StylistTest : IDisposable
   {
-    public Test()
+    public StylistTest()
     {
       DBConfiguration.ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=hair_salon_test;Integrated Security=SSPI;";
     }
 
     public void Dispose()
     {
-      Style.DeleteAll();
+      Stylist.DeleteAll();
     }
     [Fact]
     public void Test_DatabaseEmptyAtFirst()
