@@ -1,5 +1,5 @@
-<h3>Update @Model.GetName()</h3>
-<form action="/customer/update/@Model.GetId()" method="post">
+<h3>Update @Model.GetName() name</h3>
+<form action="/customer/update/name/@Model.GetId()" method="post">
   <input type="hidden" name="_method" value="PATCH">
   <input name="customer-id" type="hidden" value="@Model.GetId()">
   <label for="newname">Customer's new name</label>

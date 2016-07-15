@@ -1,0 +1,15 @@
+<h3>Update @Model["selectedClient"].GetName() stylist</h3>
+<form action="/customer/update/stylist/@Model["selectedClient"].GetId()" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+  <input name="customer-id" type="hidden" value="@Model["selectedClient"].GetId()">
+  <label for="stylist-id">New stylist</label>
+  <select name="stylist-id">
+    <option value=0>Decide later</option>
+    @foreach (var stylist in Model["stylists"])
+    {
+      <option value=@stylist.GetId()>@stylist.GetName()</option>
+    }
+  </select>
+  <button type="submit">Change Stylist</button>
+</form>
+<a href="/admin">Go back to admin panel</a>

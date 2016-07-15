@@ -1,8 +1,21 @@
-<h2>Current Employees<h2>
+<h2>Current Employees</h2>
+<a href="/employee/showclients"><em>Show clients of stylists</em></a>
 <ul>
   @foreach (var employee in Model["stylists"])
   {
-  <li>@employee.GetName() <a href="/employee/update/@employee.GetId()">edit</a> &nbsp; <a href="/employee/remove/@employee.GetId()">Remove</a></li>
+  <li>@employee.GetName() <a href="/employee/update/@employee.GetId()">edit</a> &nbsp; <a href="/employee/remove/@employee.GetId()">Remove</a>
+    @if (Model.ContainsKey("showcustomers") == true) {
+      <ul>
+        <li>Customers:</li>
+      @foreach (var client in Model["clients"]) {
+        @if (client.GetStylistId() == employee.GetId())
+        {
+          <li>@client.GetName()</li>
+        }
+      }
+      </ul>
+    }
+  </li>
   }
 </ul>
 <a href="/employee/add">Add New Employee</a>
@@ -10,7 +23,7 @@
 <ul>
   @foreach (var customer in Model["clients"])
   {
-  <li>@customer.GetName() <a href="/customer/update/@customer.GetId()">edit</a> &nbsp; <a href="/customer/remove/@customer.GetId()">Remove</a></li>
+  <li>@customer.GetName() <a href="/customer/update/name/@customer.GetId()">edit</a> | <a href="/customer/remove/@customer.GetId()">Remove</a> | <a href="/customer/update/stylist/@customer.GetId()">Switch Stylist</a></li>
   }
 </ul>
 <a href="/customer/add">Add New Customer</a>
