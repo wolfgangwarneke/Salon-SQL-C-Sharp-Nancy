@@ -31,7 +31,12 @@ namespace Salon
       Post["/employee/add"] = _ => {
         Stylist newStylist = new Stylist(Request.Form["name"]);
         newStylist.Save();
-        return View["index.cshtml"];
+        List<Stylist> allStylists = Stylist.GetAll();
+        List<Client> allClients = Client.GetAll();
+        Dictionary<string, object> model = new Dictionary<string, object> {};
+        model.Add("stylists", allStylists);
+        model.Add("clients", allClients);
+        return View["admin.cshtml", model];
       };
       Get["/employee/update/{id}"] = parameters => {
         Stylist SelectedStylist = Stylist.Find(parameters.id);
