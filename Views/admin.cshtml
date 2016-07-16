@@ -3,7 +3,7 @@
 <ul>
   @foreach (var employee in Model["stylists"])
   {
-  <li>@employee.GetName() <a href="/employee/update/@employee.GetId()">edit</a> &nbsp; <a href="/employee/remove/@employee.GetId()">Remove</a>
+  <li>@employee.GetName() <a href="/employee/update/@employee.GetId()">Edit</a> &nbsp; <a href="/employee/remove/@employee.GetId()">Remove</a>
     @if (Model.ContainsKey("showcustomers") == true) {
       <ul>
         <li>Customers:</li>
@@ -23,7 +23,7 @@
 <ul>
   @foreach (var customer in Model["clients"])
   {
-  <li>@customer.GetName() <a href="/customer/update/name/@customer.GetId()">edit</a> | <a href="/customer/remove/@customer.GetId()">Remove</a> | <a href="/customer/update/stylist/@customer.GetId()">Switch Stylist</a></li>
+  <li>@customer.GetName() <a href="/customer/update/name/@customer.GetId()">Edit</a> | <a href="/customer/remove/@customer.GetId()">Remove</a> | <a href="/customer/update/stylist/@customer.GetId()">Switch Stylist</a></li>
   }
 </ul>
 <a href="/customer/add">Add New Customer</a>

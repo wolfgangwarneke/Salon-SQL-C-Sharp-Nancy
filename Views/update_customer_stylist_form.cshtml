@@ -2,14 +2,14 @@
 <form action="/customer/update/stylist/@Model["selectedClient"].GetId()" method="post">
   <input type="hidden" name="_method" value="PATCH">
   <input name="customer-id" type="hidden" value="@Model["selectedClient"].GetId()">
-  <label for="stylist-id">New stylist</label>
+  <label for="stylist-id">New stylist</label><br>
   <select name="stylist-id">
     <option value=0>Decide later</option>
     @foreach (var stylist in Model["stylists"])
     {
       <option value=@stylist.GetId()>@stylist.GetName()</option>
     }
-  </select>
+  </select><br>
   <button type="submit">Change Stylist</button>
 </form>
 <a href="/admin">Go back to admin panel</a>
