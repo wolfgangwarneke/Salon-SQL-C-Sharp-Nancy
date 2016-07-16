@@ -49,6 +49,4 @@ _{Let people know what to do if they run into any issues or have questions, idea
 
 ### License
 
-*{Determine the license under which this application can be used.  See below for more details on licensing.}*
-
-Copyright (c) 2016 **_{List of contributors or company name}_**
+Copyright (c) 2016 **_Wolfgang Warneke_**
