@@ -35,6 +35,30 @@ _To launch this app you will need to use Nancy and SQL as well as C#. You can fi
 *	_[NancyFX](https://github.com/NancyFx/Nancy)_
 
 _You're going to need a SQL database, which will store your clients and stylists._
+#### Database and Local Host Setup
+* _Access your SQL server on the command line:_
+  `sqlcmd -S "(localdb)\mssqllocaldb"`
+* _Create a new database and switch context to it_
+~~~~
+CREATE DATABASE hair_salon;
+GO
+USE hair_salon;
+GO
+~~~~
+* _Create a new table for stylists_
+~~~~
+CREATE TABLE stylists (id INT IDENTITY(1,1), name VARCHAR(100));
+GO
+~~~~
+* _Create a new table for stylists_
+~~~~
+CREATE TABLE stylists (id INT IDENTITY(1,1), name VARCHAR(100), stylist_id INT);
+GO
+~~~~
+* _Repeate previous steps for DATABASE hair_salon_test instead of DATABASE hair_salon._
+* _Run 'DNU restore' on the command line._
+* _Run 'DNX kestrel' to start local Nancy host._
+* _Open [http://localhost:5004/](http://localhost:5004/) in your web browser_
 
 ## Known Bugs
 
