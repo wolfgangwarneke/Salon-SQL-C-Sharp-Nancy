@@ -31,7 +31,10 @@ your salon?  Who the customers are?  Or which stylist the customer prefers to se
 * _easy-to-understand_
 * _format_
 
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this app depends on?}_
+_To launch this app you will need to use Nancy and SQL as well as C#. You can find information about Nancy here:_
+*	_[NancyFX](https://github.com/NancyFx/Nancy)_
+
+_You're going to need a SQL database, which will store your clients and stylists._
 
 ## Known Bugs
 
@@ -39,7 +42,7 @@ _No known bugs at this time._
 
 ## Support and contact details
 
-_{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}_
+_DM me on Instagram: **@wolfgangwarneke**_
 
 ## Technologies Used
 

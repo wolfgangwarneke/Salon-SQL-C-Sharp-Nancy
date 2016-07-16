@@ -137,6 +137,16 @@ namespace Salon
         model.Add("showcustomers", stylistClients);
         return View["admin.cshtml", model];
       };
+      Get["/all/delete"] = _ => {
+        Stylist.DeleteAll();
+        Client.DeleteAll();
+        List<Stylist> allStylists = Stylist.GetAll();
+        List<Client> allClients = Client.GetAll();
+        Dictionary<string, object> model = new Dictionary<string, object> {};
+        model.Add("stylists", allStylists);
+        model.Add("clients", allClients);
+        return View["admin.cshtml", model];
+      };
     }
   }
 }
