@@ -62,7 +62,7 @@ namespace Salon
       Assert.Equal("Sophie", result);
     }
     [Fact]
-    public void Test_UpdateStylistId_UpdatesClientStylistIdInDatabase()
+    public void Test_UpdateStylistId_UpdatesClientsStylistIdInDatabase()
     {
       Client testClient = new Client("Sofia", 1);
       testClient.Save();
